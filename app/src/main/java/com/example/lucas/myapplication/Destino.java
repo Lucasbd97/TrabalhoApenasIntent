@@ -1,11 +1,14 @@
 package com.example.lucas.myapplication;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Destino extends ActionBarActivity {
@@ -22,10 +25,13 @@ public class Destino extends ActionBarActivity {
     private TextView saidadatadenascimento;
     private TextView saidalocaldenascimento;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destino);
+
+
 
         saidanome = (TextView) findViewById(R.id.saidanome);
         saidacpf = (TextView) findViewById(R.id.saidacpf);
