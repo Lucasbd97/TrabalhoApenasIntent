@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
     private EditText nomedamae;
     private EditText datanascimento;
     private EditText localdenascimento;
-    private DataBaseHelper helper;
+   // private DataBaseHelper helper;
 
 
     @Override
@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
         datanascimento = (EditText) findViewById(R.id.datanascimento);
         localdenascimento = (EditText) findViewById(R.id.localdenascimento);
 
-        helper = new DataBaseHelper(this);
+     //   helper = new DataBaseHelper(this);
     }
     public void enviar (View v){
         String Nome = nome.getText().toString();
@@ -72,7 +72,7 @@ public class MainActivity extends ActionBarActivity {
         cliente.setDatanascimento(Datanascimento);
         cliente.setLocaldenascimento(Localdenascimento);
 
-        SQLiteDatabase db = helper.getWritableDatabase();
+    /*    SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("nome", cliente.getNome());
         values.put("cpf",cliente.getCpf());
@@ -94,7 +94,7 @@ public class MainActivity extends ActionBarActivity {
         }else{
             Toast.makeText(this,"Erro na gravação", Toast.LENGTH_SHORT).show();
         }
-
+*/
 
 
         Intent i = new Intent(this,Destino.class);

@@ -24,6 +24,7 @@ public class Destino extends ActionBarActivity {
     private TextView saidanomedamae;
     private TextView saidadatadenascimento;
     private TextView saidalocaldenascimento;
+    private DataBaseHelper helper;
 
 
     @Override
@@ -44,6 +45,7 @@ public class Destino extends ActionBarActivity {
         saidanomedamae = (TextView) findViewById(R.id.saidanomedamae);
         saidadatadenascimento = (TextView) findViewById(R.id.saidadatadenascimento);
         saidalocaldenascimento = (TextView) findViewById(R.id.saidalocaldenascimento);
+        helper = new DataBaseHelper(this);
 
         Intent i = getIntent();
 
@@ -71,6 +73,30 @@ public class Destino extends ActionBarActivity {
         saidanomedamae.setText(Nomedamae);
         saidadatadenascimento.setText(Datanascimento);
         saidalocaldenascimento.setText(Localdenascimento);
+
+
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nome", cliente.getNome());
+        values.put("cpf",cliente.getCpf());
+        values.put("rg",cliente.getRg());
+        values.put("endereco",cliente.getEndereco());
+        values.put("bairro",cliente.getBairro());
+        values.put("cidade",cliente.getCidade());
+        values.put("uf",cliente.getUf());
+        values.put("nomedopai",cliente.getNomedopai());
+        values.put("nomedamae",cliente.getNomedamae());
+        values.put("datadenascimento",cliente.getDatanascimento());
+        values.put("localdenascimento",cliente.getLocaldenascimento());
+
+        long id = db.insert("cliente",null,values);
+
+
+        if(id != -1 ){
+            Toast.makeText(this, "Cliente salvo com sucesso", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this,"Erro na gravação", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
