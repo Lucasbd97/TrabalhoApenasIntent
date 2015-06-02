@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
     private EditText nomedamae;
     private EditText datanascimento;
     private EditText localdenascimento;
-   // private DataBaseHelper helper;
+
 
 
     @Override
@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
         datanascimento = (EditText) findViewById(R.id.datanascimento);
         localdenascimento = (EditText) findViewById(R.id.localdenascimento);
 
-     //   helper = new DataBaseHelper(this);
+
     }
     public void enviar (View v){
         String Nome = nome.getText().toString();
@@ -71,31 +71,6 @@ public class MainActivity extends ActionBarActivity {
         cliente.setNomedamae(Nomedamae);
         cliente.setDatanascimento(Datanascimento);
         cliente.setLocaldenascimento(Localdenascimento);
-
-    /*    SQLiteDatabase db = helper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("nome", cliente.getNome());
-        values.put("cpf",cliente.getCpf());
-        values.put("rg",cliente.getRg());
-        values.put("endereco",cliente.getEndereco());
-        values.put("bairro",cliente.getBairro());
-        values.put("cidade",cliente.getCidade());
-        values.put("uf",cliente.getUf());
-        values.put("nomedopai",cliente.getNomedopai());
-        values.put("nomedamae",cliente.getNomedamae());
-        values.put("datadenascimento",cliente.getDatanascimento());
-        values.put("localdenascimento",cliente.getLocaldenascimento());
-
-        long id = db.insert("cliente",null,values);
-
-
-        if(id != -1 ){
-            Toast.makeText(this, "Cliente salvo com sucesso", Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(this,"Erro na gravação", Toast.LENGTH_SHORT).show();
-        }
-*/
-
 
         Intent i = new Intent(this,Destino.class);
         i.putExtra(CLIENTE,cliente);

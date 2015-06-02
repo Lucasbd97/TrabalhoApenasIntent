@@ -20,6 +20,10 @@
             android:name=".Destino"
             android:label="@string/title_activity_destino" >
         </activity>
+        <activity
+            android:name=".Deletar"
+            android:label="@string/title_activity_deletar" >
+        </activity>
     </application>
 
 </manifest>

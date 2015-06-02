@@ -7,6 +7,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ public class Destino extends ActionBarActivity {
     private TextView saidadatadenascimento;
     private TextView saidalocaldenascimento;
     private DataBaseHelper helper;
+
 
 
     @Override
@@ -46,6 +50,8 @@ public class Destino extends ActionBarActivity {
         saidadatadenascimento = (TextView) findViewById(R.id.saidadatadenascimento);
         saidalocaldenascimento = (TextView) findViewById(R.id.saidalocaldenascimento);
         helper = new DataBaseHelper(this);
+
+
 
         Intent i = getIntent();
 
@@ -99,6 +105,13 @@ public class Destino extends ActionBarActivity {
         }
 
     }
+
+    public void delete (View v){
+        Intent i = new Intent(this,Deletar.class);
+        startActivity(i);
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
